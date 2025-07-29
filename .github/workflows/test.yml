@@ -1,17 +1,11 @@
-name: Node.js CI
-on : [push]
+name: Say Hello #the name of the workflow
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: A Seema Job to say  Mu mein lelo.
-    steps:
-      - name: hello world action step
-      - id: hello-world
-        with:
-         name: 'Seema'
-         place: 'India'
-         age: 30
-      
-      - name: Print Hello World
-        run: echo "Hello ${{ steps.hello-world.outputs.name }}"
+on: [push] #trigger <-git push
+
+jobs: #list of tasks to run 
+  hello-job:
+    runs-on: ubuntu-latest # virtual machine (ubuntu) it runs on
+
+    steps: #actions the runner will perform
+    - name: Say Hello
+      run: echo "hello Seema from rajasthan,inida" #shell cmd to execute
