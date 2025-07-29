@@ -27,3 +27,9 @@ jobs: #list of tasks to run
 
     - name: print node version
       run: node --version #run command to print node version
+
+    - name: Install Dependencies
+      run: npm install #run command to install dependencies
+
+    - name: Run Tests
+      run: npm test #run command to run tests
