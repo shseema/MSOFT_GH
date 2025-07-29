@@ -1,31 +1,17 @@
 name: Node.js CI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on : [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    name: A Seema Job to say  Mu mein lelo.
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: hello world action step
+      - id: hello-world
         with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      - name: Build project
-        run: npm run build
+         name: 'Seema'
+         place: 'India'
+         age: 30
+      
+      - name: Print Hello World
+        run: echo "Hello ${{ steps.hello-world.outputs.name }}"
