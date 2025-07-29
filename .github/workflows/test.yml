@@ -1,11 +1,29 @@
+###
+## Basic hello job ✅
+
+## Use a reusable action with uses ✅
+
+## Setup Node.js + run npm install, npm test ✅
+
+
+###
+
 name: Say Hello #the name of the workflow
 
 on: [push] #trigger <-git push
 
 jobs: #list of tasks to run 
-  hello-job:
+  setup-mode:
     runs-on: ubuntu-latest # virtual machine (ubuntu) it runs on
 
     steps: #actions the runner will perform
-    - name: Say Hello
-      run: echo "hello Seema from rajasthan,inida" #shell cmd to execute
+    - name: Checkout Code
+      uses: actions/checkout@v3 #=>downloads your repo -> action to checkout the code from the repo
+      
+    - name: Setup Node.JS
+      uses: actions/setup-node@v4 #->installs Node.js->action to setup node.js
+      with:
+        node-version: '16' #->tells which Node.js version to install-> version of node.js to use
+
+    - name: print node version
+      run: node --version #run command to print node version
