@@ -16,5 +16,5 @@ jobs:
 
       # Step 2: Use the output from the previous step
       - name: Use Shared Message
-      run: |
+        run: |
           echo "Hey Seema Look do i got the message? Got message: ${{ steps.generate.outputs.shared_message }}"
