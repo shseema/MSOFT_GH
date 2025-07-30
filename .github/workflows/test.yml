@@ -8,7 +8,8 @@ env:
 jobs:
   example-job:
     runs-on: ubuntu-latest
-
+    env:
+      Greetings: Hello
     steps:
      # Step 1: Generate a value and set it as output
       - name: Generate Message
@@ -24,6 +25,8 @@ jobs:
 
       # Step 3: Use the environment variable
       - name: Use Environment Variable
+        env:
+          FIRST_NAME:Setu
         run: |
-          echo "Today is $DAY_OF_WEEK"
+          echo "$Greetings $FIRST_NAME Today is $DAY_OF_WEEK"
         shell: bash
