@@ -1,35 +1,20 @@
-###
-## Basic hello job ✅
+name: Share data between  steps
 
-## Use a reusable action with uses ✅
+on: [push]
 
-## Setup Node.js + run npm install, npm test ✅
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
 
+    steps:
+     # Step 1: Generate a value and set it as output
+      - name: Generate Message
+        id: generate
+        run: |
+          echo "shared_message=Hey Niyam! Here's shared data 👋" >> $GITHUB_OUTPUT
+        shell: bash
 
-###
-
-name: Say Hello #the name of the workflow
-
-on: [push] #trigger <-git push
-
-jobs: #list of tasks to run 
-  setup-mode:
-    runs-on: ubuntu-latest # virtual machine (ubuntu) it runs on
-
-    steps: #actions the runner will perform
-    - name: Checkout Code
-      uses: actions/checkout@v3 #=>downloads your repo -> action to checkout the code from the repo
-      
-    - name: Setup Node.JS
-      uses: actions/setup-node@v4 #->installs Node.js->action to setup node.js
-      with:
-        node-version: '16' #->tells which Node.js version to install-> version of node.js to use
-
-    - name: print node version
-      run: node --version #run command to print node version
-
-    - name: Install Dependencies
-      run: npm install #run command to install dependencies
-
-    - name: Run Tests
-      run: npm test #run command to run tests
+      # Step 2: Use the output from the previous step
+      - name: Use Shared Message
+      run: |
+          echo "Hey Seema Look do i got the message? Got message: ${{ steps.generate.outputs.shared_message }}"
