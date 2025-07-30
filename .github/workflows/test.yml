@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       Greetings: Hello
+      SHOULD_RUN: "yes"
     steps:
      # Step 1: Generate a value and set it as output
       - name: Generate Message
+        if: env.SHOULD_RUN != 'yes' # This step will not run if SHOULD_RUN is 'yes'
         id: generate
         run: |
           echo "shared_message=Hey Niyam! Here's shared data 👋" >> $GITHUB_OUTPUT
@@ -20,11 +22,13 @@ jobs:
 
       # Step 2: Use the output from the previous step
       - name: Use Shared Message
+        if: env.SHOULD_RUN != 'yes' # This step will not run if SHOULD_RUN is 'yes'
         run: |
           echo "Hey Seema Look do i got the message? Got message: ${{ steps.generate.outputs.shared_message }}"
 
       # Step 3: Use the environment variable
       - name: Use Environment Variable
+        if: env.SHOULD_RUN == 'yes' #True
         env:
           FIRST_NAME: Niyam
         run: |
