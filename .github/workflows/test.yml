@@ -2,6 +2,9 @@ name: Share data between  steps
 
 on: [push]
 
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
   example-job:
     runs-on: ubuntu-latest
@@ -18,3 +21,9 @@ jobs:
       - name: Use Shared Message
         run: |
           echo "Hey Seema Look do i got the message? Got message: ${{ steps.generate.outputs.shared_message }}"
+
+      # Step 3: Use the environment variable
+      - name: Use Environment Variable
+        run: |
+          echo "Today is $DAY_OF_WEEK"
+        shell: bash
