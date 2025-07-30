@@ -26,7 +26,7 @@ jobs:
       # Step 3: Use the environment variable
       - name: Use Environment Variable
         env:
-          FIRST_NAME:Setu
+          FIRST_NAME: Setu
         run: |
           echo "$Greetings $FIRST_NAME Today is $DAY_OF_WEEK"
         shell: bash
