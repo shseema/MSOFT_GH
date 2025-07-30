@@ -28,5 +28,5 @@ jobs:
         env:
           FIRST_NAME: Niyam
         run: |
-          echo "$Greetings $FIRST_NAME Today is $DAY_OF_WEEK ${{vars.PET_NAME}}"
+          echo "$Greetings $FIRST_NAME Today is $DAY_OF_WEEK ${{vars.PET_NAME}} $env:RUNNER_OS"
         shell: bash
