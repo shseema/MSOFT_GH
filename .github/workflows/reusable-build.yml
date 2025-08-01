@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Message
-        run: echo "${{ inputs.message }}"
+        run: echo "tEST-> ${{ inputs.message }}"
