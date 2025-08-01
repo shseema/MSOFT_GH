@@ -1,4 +1,4 @@
-  name: Context Testing
+name: Context Testing
 on: [push]
 
 jobs:
@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: Dump Context
         run: |
-          echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+          echo "GITHUB_TOKEN: ${{ github }}"
