@@ -1,0 +1,19 @@
+name: Reusable Build Workflow #parent.yml / called.yml
+
+
+on:
+  workflow_call:
+    inputs:
+      message:
+        description: 'Message to print'
+        required: true
+        default: 'Hello, World! I love Seema Sharam ❤️'
+        type: string
+  
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: echo "Message: ${{ inputs.message }}"
+`
