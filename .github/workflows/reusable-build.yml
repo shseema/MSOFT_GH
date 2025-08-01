@@ -6,6 +6,7 @@ on:
       message:
         description: 'Message to print'
         required: false
+        type: string
         default: "Hello, World! I love Seema Sharam ❤️"
   
 jobs:
@@ -13,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Message
-        run: echo "${{ inputs.message }}"
+        run: echo "dasd ${{ inputs.message }}"
