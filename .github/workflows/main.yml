@@ -5,6 +5,6 @@ on: [push]
 
 jobs:
   use-reusable:
-    uses: ./reusable-build.yml
+    uses: ./.github/workflows/reusable-build.yml
     with:
       message: 'Hello, World! I Miss Seema Sharam ❤️'
