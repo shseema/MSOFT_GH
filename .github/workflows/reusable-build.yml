@@ -8,7 +8,6 @@ on:
         description: 'Message to print'
         required: true
         default: 'Hello, World! I love Seema Sharam ❤️'
-        type: string
   
 jobs:
   say-hello:
@@ -16,4 +15,3 @@ jobs:
     steps:
       - name: Checkout code
         run: echo "Message: ${{ inputs.message }}"
-`
