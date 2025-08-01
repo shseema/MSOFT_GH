@@ -1,1 +1,10 @@
-  
+  name: Context Testing
+on: [push]
+
+jobs:
+  dumptocontext:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump Context
+        run: |
+          echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
