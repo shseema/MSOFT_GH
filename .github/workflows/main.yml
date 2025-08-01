@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: Dump Context
         run: |
-          echo "GITHUB_TOKEN: ${{ github }}"
+          echo "GITHUB_TOKEN: ${{ toJson(github) }}"
