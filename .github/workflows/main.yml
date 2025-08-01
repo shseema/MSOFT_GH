@@ -1,11 +1,10 @@
 name: Main Workflow Calling Reusable
 
-on:
-  push:
+on: [push]
 
 
 jobs:
   use-reusable:
-    uses: ./.github/workflows/reusable-build.yml
+    uses: ./reusable-build.yml
     with:
       message: 'Hello, World! I Miss Seema Sharam ❤️'
