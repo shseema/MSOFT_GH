@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Message
-        run: echo "dasd ${{ inputs.message }}"
+        run: echo "${{ inputs.message }}"
