@@ -1,6 +1,5 @@
 name: Reusable Build Workflow #parent.yml / called.yml
 
-
 on:
   workflow_call:
     inputs:
@@ -13,5 +12,5 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Print Message
         run: echo "Message: ${{ inputs.message }}"
