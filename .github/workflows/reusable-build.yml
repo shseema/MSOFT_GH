@@ -1,12 +1,12 @@
-name: Reusable Build Workflow #parent.yml / called.yml
+name: Reusable Build Workflow
 
 on:
   workflow_call:
     inputs:
       message:
         description: 'Message to print'
-        required: true
-        default: 'Hello, World! I love Seema Sharam ❤️'
+        required: false
+        default: "Hello, World! I love Seema Sharam ❤️"
   
 jobs:
   say-hello:
