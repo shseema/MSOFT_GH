@@ -2,9 +2,19 @@ name: Context Testing
 on: [push]
 
 jobs:
-  dumptocontext:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump Context
-        run: |
-          echo "GITHUB_TOKEN: ${{ toJson(github) }}"
+    - name: Build and Test
+      run: |
+        # Your build and test commands here
+        echo "Building and testing..."
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to Staging
+      run: |
+        # Deployment steps for staging environment
+        echo "Deploying to staging..."
