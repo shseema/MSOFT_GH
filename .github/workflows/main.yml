@@ -1,10 +1,15 @@
-name: Context Testing
-on: [push]
+name: Open new issue
+on: workflow_dispatch
 
 jobs:
-  dumptocontext:
+  open-issue:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
-      - name: Dump Context
-        run: |
-          echo "GITHUB_TOKEN: ${{ toJson(github) }}"
+      - run: |
+          gh issue --repo ${{ github.repository }} \
+            create --title "Issue title" --body "Issue body"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
